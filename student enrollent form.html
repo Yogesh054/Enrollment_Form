@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	
+</head>
+<style>
+    table{
+	margin-top: 50px;
+	text-align: center;
+	background: #333;
+	color: #fff;
+    border: none;
+}
+#content
+{
+    background-color: rgb(41 121 27);
+    border-radius: 10px;
+    
+}
+
+#content th, #content td{
+	padding: 13px;
+    border: none;
+}
+
+#btn,#del
+{
+    border-radius: 10px;
+    background-color: #158d1e;
+    font-style: italic;
+    font-size: larger;
+    font-family:Calisto MT;
+
+}
+#del
+{
+    background-color: rgb(195 83 83);
+}
+.main
+{
+    display:flex;
+    justify-content: center;
+    background-color: #cff7cf;
+}
+.second
+{
+    margin: 15px;
+   
+}
+.one{
+    background-color: rgb(125 199 80);
+    padding: 30px;
+    
+    margin: 15px;
+    border: 10px;
+    border-style: solid;
+    border-color: #158d1e;
+    border-radius: 50px;
+}
+input[type="text"]
+{
+    border-radius: 30px;
+    
+}
+h3,h2
+{
+    font-style: italic;
+    font-size: larger;
+    font-family:Calisto MT;
+}
+h2{
+    font-size:xx-large;
+    text-align: center;
+}
+
+</style>
+<body>
+    <div class="main">
+        <div class="one">
+            <h2>Student Enrollment Form</h2>
+            
+                <form>
+                    
+                    
+                        <div>
+                            <h3>Name</h3>
+                           <input type="text" name="name" id="name">
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <input type="text" name="email" id="email">
+                        </div>
+                        <div>
+                            <h3>Phone No</h3>
+                            <input type="text" name="phone" id="phone">
+                        </div>
+                        <div>
+                            <h3>Age</h3>
+                            <input type="text" name="age" id="age">
+                        </div>
+                        <div>
+                            <h3>Gender<input type="text" id="gender" name="gender"></h3>
+                            <input type="radio" name="gender" onclick="myFunction(this.value)" value="Male">Male<br>
+                            <input type="radio" name="gender" onclick="myFunction(this.value)" value="Female">Female<br>
+                        </div>
+          
+                        <div>
+                            <h3>Address</h3>
+                            <input type="text" name="address" id="address">                
+                        </div>
+                        <br>
+                        <br>
+                            
+                        
+                        <div id="button">
+                            <input type="button" name="button" id="btn" value="Add" onclick="AddRow()">
+                            <input type="reset" id="del"  value="Clear" ">
+                        </div>
+
+                </form>
+                
+                
+               
+        </div>
+        <div class="second">
+            <table id="content">
+                <thead>
+                    
+                        <th>Name</th>
+					    <th>Email</th>
+					    <th>Phone Np</th>
+					    <th>Gender</th>
+                        <th>Address</th>
+                        <th>Age</th>
+                    </tr>
+
+                </thead>
+                
+                
+            </table>
+    
+        </div>
+
+    </div>
+    <script>
+        var list1=[];
+		var list2=[];
+		var list3=[];
+		var list4=[];
+        var list5=[];       
+        var list6=[];
+        
+
+		var n = 1;
+		var x = 0;
+        function myFunction(gender) 
+            {
+            document.getElementById("gender").value = gender;
+            }
+        
+        
+       
+		function AddRow(){
+
+			var AddRown = document.getElementById('content');
+			var NewRow = AddRown.insertRow(n);
+
+			list1[x] = document.getElementById("name").value;
+			list2[x] = document.getElementById("email").value;
+			list3[x] = document.getElementById("phone").value;
+            list4[x] = document.getElementById("gender").value;
+            list5[x] = document.getElementById("address").value;
+            list6[x] = document.getElementById("age").value;
+
+			var column1 = NewRow.insertCell(0);
+			var column2 = NewRow.insertCell(1);
+			var column3 = NewRow.insertCell(2);
+			var column4 = NewRow.insertCell(3);
+            var column5 = NewRow.insertCell(4);
+            var column6 = NewRow.insertCell(5);
+           
+
+			column1.innerHTML = list1[x];
+			column2.innerHTML = list2[x];
+			column3.innerHTML = list3[x];
+			column4.innerHTML = list4[x];
+            column5.innerHTML = list5[x];
+            column6.innerHTML = list6[x];
+            
+
+
+			n++;
+			x++;
+		}
+        function clr()
+		{
+			document.getElementById("content1").value = "";
+		}
+		
+		
+
+	</script>
+</body>
+</html>
+
